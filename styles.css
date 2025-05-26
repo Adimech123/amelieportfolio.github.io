@@ -39,7 +39,7 @@ body {
 
 header {
     padding: 40px 0;
-    background-color: var(--white);
+    background-color: #f9f0d3;
 }
 
 .navbar {
@@ -85,7 +85,7 @@ header {
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: #efe095;
 }
 
 .nav-links a:hover::after {
