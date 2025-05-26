@@ -18,8 +18,8 @@
     --dark: #222;
     --gray: #c5d0d3;
     --gray-dark: #8da8b0;
-    --shadow: 0 5px 15px rgba(0,0,0,0.1);
-    --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
+    --shadow: #246a7d;
+    --shadow-hover: #174552;
     --transition: all 0.3s ease;
 }
 
