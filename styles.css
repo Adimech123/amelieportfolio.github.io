@@ -141,6 +141,7 @@ header {
     font-size: 36px;
     margin-bottom: 60px;
     position: relative;
+    background-color: #c5d0d3;
 }
 
 .section-title::after {
