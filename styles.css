@@ -1,5 +1,14 @@
 /* Design Portfolio Styles */
 
+/* Font Face Declaration */
+@font-face {
+    font-family: 'Transforma';
+    src: url('path/to/transforma.woff2') format('woff2'),
+         url('path/to/transforma.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -24,7 +33,7 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Transforma', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: #c5d0d3;
