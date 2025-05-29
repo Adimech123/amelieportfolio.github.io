@@ -19,13 +19,13 @@
 :root {
     --primary-color: #efe095;
     --primary-color-dark: #d9c979;
-    --text-color: #c5d0d3;
-    --text-light: #c5d0d3;
-    --text-lighter: #c5d0d3;
+    --text-color: #ccd3b4;
+    --text-light: #ccd3b4;
+    --text-lighter: #ccd3b4;
     --bg-color: #ccd3b4;
     --white: #fff;
     --dark: #222;
-    --gray: #c5d0d3;
+    --gray: #ccd3b4;
     --gray-dark: #8da8b0;
     --shadow: 0 5px 15px rgba(36, 106, 125, 0.15);
     --shadow-hover: 0 15px 35px rgba(23, 69, 82, 0.25);
