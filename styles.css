@@ -27,7 +27,7 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--bg-color);
+    background-color: #c5d0d3;
 }
 
 /* Layout */
@@ -271,7 +271,7 @@ header {
 /* Contact section */
 .contact {
     padding: 80px 0;
-    background-color: var(--bg-color);
+    background-color: #bb8a89;
 }
 
 .contact-content {
