@@ -21,9 +21,9 @@
 :root {
     --primary-color: #efe095;
     --primary-color-dark: #d9c979;
-    --text-color: #333;
-    --text-light: #666;
-    --text-lighter: #888;
+    --text-color: #ccd3b4;
+    --text-light: #ccd3b4;
+    --text-lighter: #ccd3b4;
     --bg-color: #ccd3b4;
     --white: #fff;
     --dark: #222;
