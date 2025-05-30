@@ -87,7 +87,7 @@ header {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: var(--primary-color-dark);
+    background-color: #8e2442;
     bottom: -5px;
     left: 0;
     transition: var(--transition);
