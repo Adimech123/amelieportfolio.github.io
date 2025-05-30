@@ -4,8 +4,8 @@
 @font-face {
     font-family: 'Transforma';
     src: url('Transforma.woff2') format('woff2'),
-         url('Transforma.woff') format('woff'),
-         url('Transforma.ttf') format('truetype');
+         url('TransformaSans-Medium.woff') format('woff'),
+         url('TransformaSans-Medium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
