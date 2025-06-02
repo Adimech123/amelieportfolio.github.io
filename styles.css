@@ -222,8 +222,9 @@ header {
     font-weight: 700;
     margin-bottom: 3rem;
     color: var(--text-color);
-    position: relative;
+
 }
+
 
 
 .projects-grid {
@@ -231,9 +232,6 @@ header {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
 }
-
-
-
 .project-card {
     background-color: var(--card-bg);
     border-radius: 12px;
@@ -242,13 +240,15 @@ header {
     transition: var(--transition);
     text-decoration: none;
     color: inherit;
-    border: 2px solid var(--primary-color-light);
+    border: 2px solid var(--primary-color); /* Changed from thin rgba border */
 }
+
 
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
-    border-color: var(--primary-color); /* Darker border on hover */
+    border-color: rgba(212, 165, 116, 0.3);
+}
 
 .project-img {
     height: 250px;
