@@ -20,15 +20,21 @@
 
 /* Scroll Progress Bar */
 .scroll-watcher {
-    height: 4px;
+    height: 10px;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 1000;
-    background: linear-gradient(90deg, #d4a574, #b8956a);
-    width: 0%;
-    transition: width 0.1s ease-out;
+    width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-colour: #9d5354;
+    scale: 0 1;
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+}
+
+
+@animation scroll-watcher {
+    to { scale: 1 1; }
 }
 
 :root {
