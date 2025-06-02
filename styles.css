@@ -144,7 +144,7 @@ header {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
     bottom: 0;
     left: 0;
@@ -225,17 +225,6 @@ header {
     position: relative;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
-    border-radius: 2px;
-}
 
 .projects-grid {
     display: grid;
