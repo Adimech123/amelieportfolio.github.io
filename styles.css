@@ -232,6 +232,8 @@ header {
     gap: 2rem;
 }
 
+
+
 .project-card {
     background-color: var(--card-bg);
     border-radius: 12px;
@@ -240,14 +242,13 @@ header {
     transition: var(--transition);
     text-decoration: none;
     color: inherit;
-    border: 1px solid rgba(212, 165, 116, 0.1);
+    border: 2px solid var(--primary-color-light);
 }
 
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
-    border-color: rgba(212, 165, 116, 0.3);
-}
+    border-color: var(--primary-color); /* Darker border on hover */
 
 .project-img {
     height: 250px;
