@@ -234,13 +234,13 @@ header {
 }
 .project-card {
     background-color: var(--card-bg);
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     text-decoration: none;
     color: inherit;
-    border: 2px solid var(--primary-color); /* Changed from thin rgba border */
+    border: 2px solid #622626;
 }
 
 
