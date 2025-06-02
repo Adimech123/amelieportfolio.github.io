@@ -18,7 +18,7 @@
     box-sizing: border-box;
 }
 
-/* Scroll Progress Bar */
+/* Scroll Progress Bar - Fixed Version */
 .scroll-watcher {
     height: 10px;
     position: fixed;
@@ -26,16 +26,20 @@
     z-index: 1000;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-colour: #9d5354;
-    scale: 0 1;
+    background-color: #9d5354; /* Fixed: was background-colour */
+    transform-origin: left;
+    transform: scaleX(0); /* Better than scale: 0 1 */
     animation: scroll-watcher linear;
-    animation-timeline: scroll();
+    animation-timeline: scroll(root); /* More specific */
 }
 
-
-@animation scroll-watcher {
-    to { scale: 1 1; }
+/* Fixed: was @animation, now @keyframes */
+@keyframes scroll-watcher {
+    to { 
+        transform: scaleX(1); /* Better than scale: 1 1 */
+    }
 }
+
 
 :root {
     /* Cohesive warm earth tone palette */
