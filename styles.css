@@ -50,7 +50,7 @@ body {
 
 header {
     padding: 40px 0;
-    background-color: #8e2442;
+    background-color: var(--dark);
 }
 
 .navbar {
