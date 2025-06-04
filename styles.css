@@ -397,7 +397,7 @@ header {
 /* About section */
 .about {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    background:#622626;
 }
 
 .about-content {
