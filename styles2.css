@@ -176,7 +176,7 @@ header {
     margin: 0 auto; /* Center the gallery */
 }
 
-.gallery-1 img {
+.gallery-1>img {
     height: 100%;
     flex: 1;
     object-fit: cover;
@@ -185,7 +185,7 @@ header {
     transition: all 0.3s;
 }
 
-.gallery-1 img:hover {
+.gallery-1>img:hover {
     flex: 4;
 }
 /* Hero section */
