@@ -208,27 +208,32 @@ header {
 
 
 
-
-.gallery.1{
-    width:85vw;
-    height:60vmin;
-    display:flex;
-    gap:5px;
-}
-.gallery.1 img{
-    height:100%;
-    flex:1;
-    object-fit:cover;
-    overflow:hidden;
-    cursor:pointer;
-    border-radius:10px;
-    transition:all 0.3s;
+.gallery-1 {
+    width: 85vw;
+    height: 60vmin;
+    display: flex;
+    gap: 5px;
 }
 
-.gallery img:hover{
-    flex:4;
+.gallery-grid1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 5px;
 }
 
+.gallery-grid1 img {
+    height: 100%;
+    flex: 1;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.gallery-grid1 img:hover {
+    flex: 4;
+}
 /* Hero section */
 .hero {
     padding: 6rem 0;
