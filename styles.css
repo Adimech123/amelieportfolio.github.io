@@ -206,13 +206,16 @@ header {
   margin: 0;
 }
 
-.gallery{
+
+
+
+.gallery.1{
     width:85vw;
     height:60vmin;
     display:flex;
     gap:5px;
 }
-.gallery img{
+.gallery.1 img{
     height:100%;
     flex:1;
     object-fit:cover;
