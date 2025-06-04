@@ -1,4 +1,4 @@
-/* Design Portfolio Styles - Improved */
+/* Design Portfolio Styles - Improved with Text Animations */
 
 /* Font Face Declaration for Transforma */
 @font-face {
@@ -26,20 +26,18 @@
     z-index: 1000;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: #9d5354; /* Fixed: was background-colour */
+    background-color: #9d5354;
     transform-origin: left;
-    transform: scaleX(0); /* Better than scale: 0 1 */
+    transform: scaleX(0);
     animation: scroll-watcher linear;
-    animation-timeline: scroll(root); /* More specific */
+    animation-timeline: scroll(root);
 }
 
-/* Fixed: was @animation, now @keyframes */
 @keyframes scroll-watcher {
     to { 
-        transform: scaleX(1); /* Better than scale: 1 1 */
+        transform: scaleX(1);
     }
 }
-
 
 :root {
     /* Cohesive warm earth tone palette */
@@ -115,6 +113,7 @@ header {
 .logo img {
     height: 60px;
     width: auto;
+    animation: logoFloat 3s ease-in-out infinite;
 }
 
 .logo-text {
@@ -122,6 +121,7 @@ header {
     font-weight: 700;
     color: var(--text-on-dark);
     text-decoration: none;
+    animation: textGlow 2s ease-in-out infinite alternate;
 }
 
 .nav-links {
@@ -138,7 +138,13 @@ header {
     transition: var(--transition);
     position: relative;
     padding: 0.5rem 0;
+    animation: slideInFromTop 0.8s ease-out backwards;
 }
+
+.nav-links li:nth-child(1) a { animation-delay: 0.1s; }
+.nav-links li:nth-child(2) a { animation-delay: 0.2s; }
+.nav-links li:nth-child(3) a { animation-delay: 0.3s; }
+.nav-links li:nth-child(4) a { animation-delay: 0.4s; }
 
 .nav-links a::after {
     content: '';
@@ -153,6 +159,7 @@ header {
 
 .nav-links a:hover {
     color: var(--primary-color-light);
+    animation: textBounce 0.6s ease-in-out;
 }
 
 .nav-links a:hover::after {
@@ -171,6 +178,12 @@ header {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--text-color);
+    animation: typewriter 3s steps(20) 1s both, blinkCursor 1s step-end 4s infinite;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary-color);
+    display: inline-block;
+    max-width: fit-content;
 }
 
 .hero p {
@@ -180,6 +193,7 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    animation: fadeInUp 1s ease-out 2s both;
 }
 
 .hero img {
@@ -187,6 +201,7 @@ header {
     height: auto;
     border-radius: 12px;
     box-shadow: var(--shadow-strong);
+    animation: fadeInScale 1.2s ease-out 2.5s both;
 }
 
 .btn {
@@ -202,12 +217,14 @@ header {
     border: none;
     cursor: pointer;
     box-shadow: var(--shadow);
+    animation: pulseGlow 2s ease-in-out infinite alternate 3s;
 }
 
 .btn:hover {
     background: linear-gradient(135deg, var(--primary-color-dark), var(--accent-dark));
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
+    animation: buttonWiggle 0.5s ease-in-out;
 }
 
 /* Projects section */
@@ -222,16 +239,29 @@ header {
     font-weight: 700;
     margin-bottom: 3rem;
     color: var(--text-color);
-
+    animation: slideInFromLeft 1s ease-out;
+    position: relative;
 }
 
-
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: expandLine 1s ease-out 0.5s both;
+}
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
 }
+
 .project-card {
     background-color: var(--card-bg);
     border-radius: 15px;
@@ -241,13 +271,21 @@ header {
     text-decoration: none;
     color: inherit;
     border: 2px solid #622626;
+    animation: cardSlideIn 0.8s ease-out backwards;
 }
 
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
 
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
     border-color: rgba(212, 165, 116, 0.3);
+    animation: cardHover 0.3s ease-in-out;
 }
 
 .project-img {
@@ -277,6 +315,7 @@ header {
     font-size: var(--font-size-xl);
     font-weight: 600;
     color: var(--text-color);
+    animation: textReveal 0.6s ease-out 0.3s both;
 }
 
 .project-info p {
@@ -284,6 +323,7 @@ header {
     margin-bottom: 1rem;
     font-size: var(--font-size-sm);
     line-height: 1.5;
+    animation: textReveal 0.6s ease-out 0.5s both;
 }
 
 .project-tags {
@@ -300,6 +340,18 @@ header {
     color: var(--text-light);
     font-weight: 500;
     border: 1px solid rgba(212, 165, 116, 0.2);
+    animation: tagPop 0.4s ease-out backwards;
+    transition: var(--transition);
+}
+
+.tag:nth-child(1) { animation-delay: 0.7s; }
+.tag:nth-child(2) { animation-delay: 0.8s; }
+.tag:nth-child(3) { animation-delay: 0.9s; }
+.tag:nth-child(4) { animation-delay: 1s; }
+
+.tag:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
 }
 
 /* About section */
@@ -320,6 +372,7 @@ header {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-strong);
+    animation: slideInFromLeft 1s ease-out;
 }
 
 .about-img img {
@@ -330,6 +383,7 @@ header {
 
 .about-text {
     flex: 1;
+    animation: slideInFromRight 1s ease-out;
 }
 
 .about-text h2 {
@@ -337,6 +391,7 @@ header {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--text-on-dark);
+    animation: textWave 2s ease-in-out infinite;
 }
 
 .about-text p {
@@ -345,7 +400,12 @@ header {
     font-size: var(--font-size-lg);
     line-height: 1.7;
     opacity: 0.9;
+    animation: fadeInStagger 0.8s ease-out backwards;
 }
+
+.about-text p:nth-child(2) { animation-delay: 0.2s; }
+.about-text p:nth-child(3) { animation-delay: 0.4s; }
+.about-text p:nth-child(4) { animation-delay: 0.6s; }
 
 /* Contact section */
 .contact {
@@ -359,6 +419,7 @@ header {
     font-weight: 700;
     margin-bottom: 3rem;
     color: var(--text-color);
+    animation: rotateIn 1s ease-out;
 }
 
 .contact-content {
@@ -369,6 +430,7 @@ header {
 
 .contact-info {
     flex: 1;
+    animation: slideInFromLeft 0.8s ease-out 0.3s both;
 }
 
 .contact-info h3 {
@@ -376,12 +438,14 @@ header {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--text-color);
+    animation: textFlicker 1.5s ease-in-out 1s;
 }
 
 .contact-info p {
     margin-bottom: 1.5rem;
     color: var(--text-light);
     font-size: var(--font-size-lg);
+    animation: fadeInUp 0.6s ease-out 0.5s both;
 }
 
 .contact-form {
@@ -390,6 +454,7 @@ header {
     padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--shadow);
+    animation: slideInFromRight 0.8s ease-out 0.3s both;
 }
 
 .form-group {
@@ -402,6 +467,7 @@ header {
     font-weight: 600;
     color: var(--text-color);
     font-size: var(--font-size-sm);
+    animation: labelSlide 0.4s ease-out backwards;
 }
 
 .form-input {
@@ -413,12 +479,21 @@ header {
     font-family: inherit;
     transition: var(--transition);
     background-color: var(--white);
+    animation: inputFadeIn 0.5s ease-out backwards;
 }
+
+.form-group:nth-child(1) .form-label { animation-delay: 0.1s; }
+.form-group:nth-child(1) .form-input { animation-delay: 0.2s; }
+.form-group:nth-child(2) .form-label { animation-delay: 0.3s; }
+.form-group:nth-child(2) .form-input { animation-delay: 0.4s; }
+.form-group:nth-child(3) .form-label { animation-delay: 0.5s; }
+.form-group:nth-child(3) .form-input { animation-delay: 0.6s; }
 
 .form-input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+    animation: inputFocus 0.3s ease-out;
 }
 
 textarea.form-input {
@@ -442,6 +517,7 @@ footer {
 
 .footer-info {
     max-width: 300px;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .footer-logo {
@@ -450,6 +526,7 @@ footer {
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
     color: var(--text-on-dark);
+    animation: logoGlow 3s ease-in-out infinite alternate;
 }
 
 .footer-social {
@@ -470,17 +547,24 @@ footer {
     text-decoration: none;
     transition: var(--transition);
     font-size: var(--font-size-lg);
+    animation: socialBounce 2s ease-in-out infinite;
 }
+
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 0.2s; }
+.social-icon:nth-child(3) { animation-delay: 0.4s; }
 
 .social-icon:hover {
     background: linear-gradient(135deg, var(--primary-color-dark), var(--accent-dark));
     transform: translateY(-3px);
     box-shadow: var(--shadow);
+    animation: socialHover 0.3s ease-in-out;
 }
 
 .footer-nav {
     display: flex;
     gap: 4rem;
+    animation: slideInFromRight 0.8s ease-out 0.2s both;
 }
 
 .footer-nav-column h3 {
@@ -488,6 +572,7 @@ footer {
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-on-dark);
+    animation: textShimmer 2s ease-in-out infinite alternate;
 }
 
 .footer-nav-links {
@@ -496,7 +581,13 @@ footer {
 
 .footer-nav-links li {
     margin-bottom: 0.75rem;
+    animation: listItemSlide 0.5s ease-out backwards;
 }
+
+.footer-nav-links li:nth-child(1) { animation-delay: 0.1s; }
+.footer-nav-links li:nth-child(2) { animation-delay: 0.2s; }
+.footer-nav-links li:nth-child(3) { animation-delay: 0.3s; }
+.footer-nav-links li:nth-child(4) { animation-delay: 0.4s; }
 
 .footer-nav-links a {
     text-decoration: none;
@@ -509,6 +600,7 @@ footer {
 .footer-nav-links a:hover {
     opacity: 1;
     color: var(--primary-color-light);
+    animation: linkPulse 0.4s ease-in-out;
 }
 
 .copyright {
@@ -518,9 +610,253 @@ footer {
     opacity: 0.7;
     font-size: var(--font-size-sm);
     border-top: 1px solid rgba(245, 241, 235, 0.1);
+    animation: fadeIn 1s ease-out 1s both;
 }
 
-/* Animations */
+/* Text Animation Keyframes */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+    0%, 50% { border-color: var(--primary-color); }
+    51%, 100% { border-color: transparent; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 5px rgba(212, 165, 116, 0.3); }
+    to { text-shadow: 0 0 20px rgba(212, 165, 116, 0.8), 0 0 30px rgba(212, 165, 116, 0.4); }
+}
+
+@keyframes textBounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    80% { transform: translateY(-3px); }
+}
+
+@keyframes textWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes textFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes textShimmer {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; text-shadow: 0 0 10px rgba(212, 165, 116, 0.5); }
+}
+
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandLine {
+    from { width: 0; }
+    to { width: 80px; }
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cardHover {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-4px) scale(1.02); }
+    100% { transform: translateY(-8px) scale(1); }
+}
+
+@keyframes tagPop {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: var(--shadow), 0 0 0 0 rgba(212, 165, 116, 0.4);
+    }
+    to {
+        box-shadow: var(--shadow-hover), 0 0 0 10px rgba(212, 165, 116, 0);
+    }
+}
+
+@keyframes buttonWiggle {
+    0%, 100% { transform: translateY(-2px) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(-1deg); }
+    75% { transform: translateY(-2px) rotate(1deg); }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes fadeInStagger {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes labelSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes inputFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes inputFocus {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes logoGlow {
+    from { 
+        text-shadow: 0 0 5px rgba(212, 165, 116, 0.3);
+        opacity: 0.9;
+    }
+    to { 
+        text-shadow: 0 0 15px rgba(212, 165, 116, 0.6), 0 0 25px rgba(212, 165, 116, 0.3);
+        opacity: 1;
+    }
+}
+
+@keyframes socialBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes socialHover {
+    0% { transform: translateY(-3px) scale(1); }
+    50% { transform: translateY(-3px) scale(1.1); }
+    100% { transform: translateY(-3px) scale(1); }
+}
+
+@keyframes listItemSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes linkPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
 @keyframes fadeIn {
     from { 
         opacity: 0; 
@@ -565,6 +901,9 @@ footer {
     
     .hero h1 {
         font-size: var(--font-size-4xl);
+        white-space: normal;
+        border-right: none;
+        animation: fadeInUp 1s ease-out;
     }
     
     .section-title {
@@ -589,6 +928,9 @@ footer {
     
     .hero h1 {
         font-size: var(--font-size-3xl);
+        white-space: normal;
+        border-right: none;
+        animation: fadeInUp 1s ease-out;
     }
     
     .hero p {
@@ -615,5 +957,22 @@ footer {
     
     .about-content {
         gap: 2rem;
+    }
+    
+    /* Reduce animation complexity on mobile for better performance */
+    .hero h1 {
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .nav-links a {
+        animation: none;
+    }
+    
+    .project-card {
+        animation: fadeInUp 0.6s ease-out backwards;
+    }
+    
+    .tag {
+        animation: none;
     }
 }
