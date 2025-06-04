@@ -201,13 +201,51 @@ header {
   margin: 0;
 }
 
-/* Fixed gallery-1 styles to match your HTML structure */
+/* Project Image Gallery */
+.gallery {
+  padding: 60px 0;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.gallery-item p {
+  text-align: center;
+  padding: 12px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  margin: 0;
+}
+
+/* Enhanced Gallery-1 with Expand on Hover Effect */
 .gallery-1 {
     width: 85vw;
     height: 60vmin;
     display: flex;
     gap: 5px;
-    margin: 0 auto; /* Center the gallery */
+    margin: 0 auto;
+    padding: 20px 0;
+    /* Add container overflow to contain expanded images */
+    overflow: hidden;
+    border-radius: 15px;
 }
 
 .gallery-1 img {
@@ -216,11 +254,72 @@ header {
     object-fit: cover;
     cursor: pointer;
     border-radius: 10px;
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Add subtle shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Slightly reduce brightness by default */
+    filter: brightness(0.8) saturate(0.9);
 }
 
+/* Hover effect - expand the hovered image */
 .gallery-1 img:hover {
     flex: 4;
+    /* Enhance the hovered image */
+    filter: brightness(1) saturate(1.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    /* Add subtle scale for more dramatic effect */
+    transform: scale(1.02);
+}
+
+/* Shrink other images when one is hovered */
+.gallery-1:hover img:not(:hover) {
+    flex: 0.8;
+    filter: brightness(0.6) saturate(0.7) blur(1px);
+    transform: scale(0.95);
+}
+
+/* Optional: Add a subtle animation when entering the gallery */
+.gallery-1 img {
+    animation: fadeInScale 0.6s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add staggered animation delay for each image */
+.gallery-1 img:nth-child(1) { animation-delay: 0.1s; }
+.gallery-1 img:nth-child(2) { animation-delay: 0.2s; }
+.gallery-1 img:nth-child(3) { animation-delay: 0.3s; }
+.gallery-1 img:nth-child(4) { animation-delay: 0.4s; }
+.gallery-1 img:nth-child(5) { animation-delay: 0.5s; }
+.gallery-1 img:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-1 {
+        width: 95vw;
+        height: 40vmin;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .gallery-1 img:hover {
+        flex: 3;
+        transform: scale(1.05);
+    }
+    
+    .gallery-1:hover img:not(:hover) {
+        flex: 1;
+    }
 }
 /* Hero section */
 .hero {
