@@ -1,6 +1,3 @@
-/* Design Portfolio Styles - Improved with Text Animations and Enhanced Project Hero */
-
-/* Font Face Declaration for Transforma */
 @font-face {
     font-family: 'Transforma';
     src: url('Transforma.woff2') format('woff2'),
@@ -41,9 +38,9 @@
 
 :root {
     /* Cohesive warm earth tone palette */
-    --primary-color: #dbcb97;
-    --primary-color-dark: #b3a26d;
-    --primary-color-light: #fcf2d2;
+    --primary-color: #d4a574;
+    --primary-color-dark: #b8956a;
+    --primary-color-light: #e6c49a;
     --accent-color: #a67c52;
     --accent-dark: #8b6644;
     
