@@ -799,7 +799,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+    background: #dbcb97;
     border-radius: 50%;
     color: var(--white);
     text-decoration: none;
