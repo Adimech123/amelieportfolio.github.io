@@ -40,14 +40,15 @@
 }
 
 :root {
-    /* Cohesive warm earth tone palette */
-    --primary-color: #d4a574;
-    --primary-color-dark: #b8956a;
-    --primary-color-light: #e6c49a;
+    /* main colors */
+    --primary-color: #dbcb97;
+    --primary-color-dark: #b5a46b;
+    --primary-color-light: #fcf2d2;
     --accent-color: #a67c52;
-    --accent-dark: #8b6644;
+    --accent-dark: #622626;
     
-    /* Text colors with better contrast */
+    
+    /* Text colors  */
     --text-color: #2c2016;
     --text-light: #4a3c2a;
     --text-lighter: #6b5d4f;
