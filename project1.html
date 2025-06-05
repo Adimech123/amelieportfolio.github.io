@@ -107,35 +107,50 @@
     </div>
   </section>
   <!-- Design Process Gallery Section -->
-    <section class="gallery-section" >
+   .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
 
-    <div class="gallery">
-    <div class="gallery-panel">
-      <img src="marg7.png" alt="Initial Logo Concepts">
-      </div>
+/* Panel styling */
+.gallery-panel img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
 
-      <div class="gallery-panel">
-      <img src="marg2.png" alt="Moodboard and Inspiration">
-      </div>
+/* Hover effect on desktop */
+@media (min-width: 768px) {
+  .gallery-panel img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
 
-      <div class="gallery-panel">
-      <img src="marg3.png" alt="Typography Exploration">
-      </div>
+/* Mobile scroll effect */
+@media (max-width: 767px) {
+  .gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding: 16px;
+  }
 
-      <div class="gallery-panel">
-      <img src="marg4.png" alt="Color Palette Options">
-      </div>
+  .gallery-panel {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    width: 80%;
+  }
 
-      <div class="gallery-panel">
-      <img src="marg5.png" alt="Refined Brand Assets">
-      </div>
+  .gallery-panel img {
+    border-radius: 16px;
+  }
+}
 
-      <div class="gallery-panel">
-      <img src="marg6.png" alt="Final Logo and Application">
-    </div>
-    </div>
-
-  </section>
   <!-- Skills & Tools Section -->
   <section class="about" id="skills-tools">
     <div class="container">
