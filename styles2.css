@@ -619,7 +619,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+    background: #dbcb97;
     border-radius: 50%;
     color: var(--white);
     text-decoration: none;
@@ -668,4 +668,26 @@ footer {
 .footer-nav-links li:nth-child(4) { animation-delay: 0.4s; }
 
 .footer-nav-links a {
-    text-decoration: none
+    text-decoration: none;
+    color: var(--text-on-dark);
+    opacity: 0.8;
+    transition: var(--transition);
+    font-size: var(--font-size-sm);
+}
+
+.footer-nav-links a:hover {
+    opacity: 1;
+    color: var(--primary-color-light);
+    animation: linkPulse 0.4s ease-in-out;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    color: var(--text-on-dark);
+    opacity: 0.7;
+    font-size: var(--font-size-sm);
+    border-top: 1px solid rgba(245, 241, 235, 0.1);
+    animation: fadeIn 1s ease-out 1s both;
+}
+
