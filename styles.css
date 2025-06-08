@@ -188,40 +188,6 @@ header {
   margin: 0;
 }
 
-/* Project Image Gallery */
-.gallery {
-  padding: 60px 0;
-}
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-.gallery-item {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
-  transition: transform 0.3s ease;
-}
-.gallery-item:hover {
-  transform: translateY(-5px);
-}
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.gallery-item p {
-  text-align: center;
-  padding: 12px;
-  font-weight: 500;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  background-color: #f9f9f9;
-  margin: 0;
-}
-
 /* Enhanced Gallery-1 with Expand on Hover Effect */
 .gallery-1 {
     width: 85vw;
