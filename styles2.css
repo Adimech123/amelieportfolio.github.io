@@ -363,7 +363,7 @@ header {
   }
   
   .gallery-panel {
-    height: 150px;
+    height: auto;
     border-radius: 0.5rem;
   }
   
