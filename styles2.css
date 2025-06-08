@@ -309,44 +309,92 @@ header {
     transform: scale(1.1);
 }
 
-/* Fixed gallery styles to match your HTML structure */
+/* Desktop Gallery Layout */
 .gallery-section {
-    padding: 4rem 0; /* Added padding top and bottom */
+  padding: 80px 0;
+  background: #f8f9fa;
 }
 
 .gallery {
-    max-width: 100vw; /* Full screen width */
-    width: 100%;
-    height: 450px;
-    margin-inline: auto;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0 1rem; /* Small horizontal padding to prevent edge cutoff */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .gallery-panel {
-    flex: 1;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    transition: flex 0.5s ease-in-out;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-panel:hover {
-    flex: 2.5;
-}
-
-/* Fixed selector syntax and added missing semicolon */
-.gallery:has(.gallery-panel:hover) .gallery-panel:not(:hover) img {
-    filter: grayscale(100%);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-panel img {
-    width: 100%;
-    height: 100%; /* Added missing semicolon */
-    object-fit: cover;
-    transition: 0.5s ease;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-panel:hover img {
+  transform: scale(1.05);
+}
+
+/* Tablet Layout */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+/* Mobile Gallery Layout - Image Grid */
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 60px 0;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .gallery-panel {
+    border-radius: 8px;
+  }
+
+  .gallery-panel img {
+    height: 200px;
+  }
+
+  .gallery-panel:hover {
+    transform: none;
+  }
+
+  .gallery-panel:hover img {
+    transform: none;
+  }
+}
+
+/* Very small screens - Single column */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-panel img {
+    height: 250px;
+  }
 }
 
 /* Hero section */
