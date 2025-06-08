@@ -1,3 +1,4 @@
+
 /* Design Portfolio Styles - Improved with Text Animations */
 
 /* Font Face Declaration for Transforma */
@@ -147,24 +148,9 @@ header {
 .nav-links li:nth-child(3) a { animation-delay: 0.3s; }
 .nav-links li:nth-child(4) a { animation-delay: 0.4s; }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
-    bottom: 0;
-    left: 0;
-    transition: var(--transition);
-}
-
 .nav-links a:hover {
     color: var(--primary-color-light);
     animation: textBounce 0.6s ease-in-out;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
 }
 
 
@@ -397,19 +383,6 @@ header {
     color: var(--text-color);
     animation: slideInFromLeft 1s ease-out;
     position: relative;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-    animation: expandLine 1s ease-out 0.5s both;
 }
 
 .projects-grid {
@@ -921,7 +894,6 @@ footer {
     
     .nav-links {
         gap: 1rem;
-    }
     
     .hero {
         padding: 4rem 0;
