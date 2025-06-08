@@ -9,6 +9,7 @@
   <!-- Preload Transforma font for better performance -->
   <link rel="preload" href="TransformaSans-Medium.woff" as="font" type="font/woff" crossorigin />
 
+  <link rel="stylesheet" href="styles2.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="logo.png" type="image/png" />
   
@@ -16,470 +17,137 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
 
+  <!-- Additional responsive styles to complement your existing CSS -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Bootstrap Grid Integration with your existing styles */
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    .col, .col-lg-6, .col-lg-4, .col-md-6, .col-12 {
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #fafafa;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    header {
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .logo img {
-      height: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #6366f1;
-    }
-
-    /* Project Hero */
-    .project-hero {
-      padding: 120px 0 80px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      text-align: center;
-    }
-
-    .project-hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .project-subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    .project-meta {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .meta-item {
-      text-align: center;
-    }
-
-    .meta-label {
-      font-size: 0.875rem;
-      opacity: 0.8;
-      margin-bottom: 0.5rem;
-    }
-
-    .meta-value {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    /* Project Overview Section - Mobile Optimized */
-    .about {
-      padding: 80px 0;
-      background: white;
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .about-img img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-
-    .about-text h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #1a1a1a;
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      color: #555;
-    }
-
-    /* Gallery Section */
-    .gallery-section {
-      padding: 80px 0;
-      background: #f8f9fa;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #666;
-      margin-bottom: 3rem;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .gallery-panel img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-panel img:hover {
-      transform: translateY(-5px);
-    }
-
-    /* Project Tags */
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 2rem;
-    }
-
-    .tag {
-      background: #6366f1;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    /* Contact Section */
-    .contact {
-      padding: 80px 0;
-      background: #1a1a1a;
-      color: white;
-    }
-
-    .contact-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
-
-    .contact-info h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-info p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .contact-form {
-      background: rgba(255,255,255,0.05);
-      padding: 2rem;
-      border-radius: 15px;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.1);
-      color: white;
-      font-size: 1rem;
-    }
-
-    .form-input::placeholder {
-      color: rgba(255,255,255,0.6);
-    }
-
-    textarea.form-input {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .btn {
-      background: #6366f1;
-      color: white;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #5856eb;
-    }
-
-    /* Footer */
-    footer {
-      background: #111;
-      color: white;
-      padding: 3rem 0 1rem;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-icon {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: #333;
-      color: white;
-      text-align: center;
-      line-height: 40px;
-      border-radius: 50%;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .social-icon:hover {
-      background: #6366f1;
-    }
-
-    .footer-nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .footer-nav h3 {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .footer-nav-links {
-      list-style: none;
-    }
-
-    .footer-nav-links li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-nav-links a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-nav-links a:hover {
-      color: white;
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid #333;
-      color: #888;
-    }
-
-    /* Mobile Optimizations */
+    /* Ensure your existing animations work with Bootstrap grid */
     @media (max-width: 768px) {
-      .container {
-        padding: 0 15px;
+      .project-hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
       }
-
-      /* Mobile Navigation */
+      
+      .project-subtitle {
+        font-size: var(--font-size-lg);
+        padding: 0 1rem;
+      }
+      
+      .project-meta {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+      
+      .meta-item {
+        padding: 1.5rem 1rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .about-img {
+        height: 250px;
+      }
+      
+      .contact-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .footer-nav {
+        gap: 2rem;
+      }
+      
       .nav-links {
         display: none;
       }
-
-      /* Mobile Hero */
-      .project-hero {
-        padding: 100px 0 60px;
+      
+      .navbar-toggler {
+        display: block !important;
+        background: none;
+        border: none;
+        color: var(--text-on-dark);
+        font-size: 1.5rem;
       }
-
-      .project-hero h1 {
-        font-size: 2rem;
+      
+      .navbar-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
       }
-
-      .project-subtitle {
-        font-size: 1rem;
+      
+      .navbar-nav.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
       }
-
-      .project-meta {
-        gap: 1.5rem;
-      }
-
-      /* Mobile Project Overview - Key Fix */
-      .about {
-        padding: 60px 0;
-      }
-
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .about-img {
-        order: -1; /* Image first on mobile */
-      }
-
-      .about-text {
-        text-align: left;
-      }
-
-      .about-text h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      .about-text p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      /* Mobile Gallery */
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      /* Mobile Contact */
-      .contact {
-        padding: 60px 0;
-      }
-
-      .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .contact-form {
-        padding: 1.5rem;
-      }
-
-      /* Mobile Footer */
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .footer-nav {
-        grid-template-columns: 1fr;
-        text-align: left;
-      }
-
-      .footer-social {
-        justify-content: center;
+      
+      .navbar-nav .nav-link {
+        color: var(--text-on-dark);
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
       }
     }
 
     @media (max-width: 480px) {
-      /* Extra small mobile optimizations */
-      .project-hero h1 {
-        font-size: 1.75rem;
+      .project-hero {
+        padding: 3rem 0;
       }
-
-      .about-text h2 {
-        font-size: 1.75rem;
+      
+      .about, .contact {
+        padding: 3rem 0;
       }
-
-      .section-title {
-        font-size: 1.75rem;
+      
+      .section-title, .project-hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
       }
-
-      .project-tags {
-        justify-content: center;
+      
+      .meta-item {
+        padding: 1rem;
       }
-
-      .tag {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
+      
+      .contact-form {
+        padding: 1.5rem;
       }
     }
+
+    /* Mobile navigation toggle */
+    .navbar-toggler {
+      display: none;
+    }
+
+    /* Ensure Bootstrap utilities don't override your custom styles */
+    .text-center { text-align: center !important; }
+    .mb-5 { margin-bottom: 3rem !important; }
+    .mb-4 { margin-bottom: 1.5rem !important; }
+    .mb-3 { margin-bottom: 1rem !important; }
+    .g-4 > * { padding: 1rem; }
+    .g-5 > * { padding: 1.5rem; }
   </style>
 </head>
 <body>
@@ -490,11 +158,20 @@
     <div class="container">
       <nav class="navbar">
         <a href="index.html" class="logo"><img src="logo.png" alt="Logo" /></a>
+        <button class="navbar-toggler d-lg-none" type="button" onclick="toggleMobileNav()">
+          <i class="bi bi-list"></i>
+        </button>
         <ul class="nav-links">
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#projects">Projects</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
+        <!-- Mobile Navigation -->
+        <div class="navbar-nav d-lg-none" id="mobileNav">
+          <a class="nav-link" href="index.html#about">About</a>
+          <a class="nav-link" href="index.html#projects">Projects</a>
+          <a class="nav-link" href="index.html#contact">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -541,8 +218,8 @@
  <!-- Design Process Gallery Section -->
 <section class="gallery-section">
   <div class="container">
-    <h2 class="section-title">Design Process</h2>
-    <p class="section-subtitle">From initial concepts to final brand identity</p>
+    <h2 class="section-title text-center">Design Process</h2>
+    <p class="section-subtitle text-center">From initial concepts to final brand identity</p>
     
     <div class="gallery">
       <div class="gallery-panel">
@@ -583,7 +260,7 @@
           <h2>Skills & Tools</h2>
           <p>This project utilized a comprehensive range of design skills and professional tools to deliver a complete brand identity solution.</p>
           <p>The process involved strategic brand thinking, visual design expertise, and technical execution across multiple software platforms. Each tool was chosen specifically to achieve optimal results for different aspects of the project.</p>
-          <div class="project-tags">
+          <div class="project-tags d-flex flex-wrap gap-2 mt-4">
             <span class="tag">Brand Strategy</span>
             <span class="tag">Logo Design</span>
             <span class="tag">Typography</span>
@@ -672,8 +349,26 @@
         </div>
     </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    // Mobile navigation toggle
+    function toggleMobileNav() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.toggle('show');
+    }
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', function(e) {
+      const mobileNav = document.getElementById('mobileNav');
+      const toggleBtn = document.querySelector('.navbar-toggler');
+      
+      if (!mobileNav.contains(e.target) && !toggleBtn.contains(e.target)) {
+        mobileNav.classList.remove('show');
+      }
+    });
+
     // Smooth scroll behavior for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -681,6 +376,8 @@
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
+          // Close mobile nav after clicking
+          document.getElementById('mobileNav').classList.remove('show');
         }
       });
     });
