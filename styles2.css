@@ -348,23 +348,23 @@ header {
   transition: 0.5s ease;
 }
 
-/* Mobile styles */
+/* Mobile styles - Grid Layout */
 @media (max-width: 768px) {
   .gallery-section {
-    padding: 2rem 0; /* Reduce padding on mobile */
+    padding: 2rem 0;
   }
   
   .gallery {
-    height: 300px; /* Shorter height for mobile */
-    flex-direction: column; /* Stack vertically */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: auto;
     gap: 0.5rem;
     padding: 0 0.5rem;
   }
   
   .gallery-panel {
-    flex: none; /* Remove flex behavior */
-    height: 80px; /* Fixed height for each panel */
-    border-radius: 0.5rem; /* Smaller border radius */
+    height: 150px;
+    border-radius: 0.5rem;
   }
   
   /* Disable hover effects on mobile */
@@ -376,21 +376,22 @@ header {
     filter: none;
   }
   
-  /* Optional: Add tap effect instead */
+  /* Add tap effect instead */
   .gallery-panel:active {
     transform: scale(0.98);
   }
 }
 
-/* Very small screens */
+/* Very small screens - Single column */
 @media (max-width: 480px) {
   .gallery {
-    height: 250px;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
     padding: 0 0.25rem;
   }
   
   .gallery-panel {
-    height: 60px;
+    height: 120px;
   }
 }
 
