@@ -16,31 +16,115 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     
+    <!-- Additional responsive styles to complement your existing CSS -->
+    <style>
+        /* Bootstrap Grid Integration with your existing styles */
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .col, .col-lg-6, .col-lg-4, .col-md-6, .col-12 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
+        /* Ensure your existing animations work with Bootstrap grid */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
             }
-
-            .mobile-menu-toggle {
-                display: block;
+            
+            .about-img {
+                height: 250px;
             }
-
-            .navbar {
-                position: relative;
+            
+            .contact-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .footer-nav {
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .navbar-toggler {
+                display: block !important;
+                background: none;
+                border: none;
+                color: var(--text-on-dark);
+                font-size: 1.5rem;
+            }
+            
+            .navbar-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .navbar-nav.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .navbar-nav .nav-link {
+                color: var(--text-on-dark);
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
         }
+
+        @media (max-width: 480px) {
+            .about, .contact {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Mobile navigation toggle */
+        .navbar-toggler {
+            display: none;
+        }
+
+        /* Ensure Bootstrap utilities don't override your custom styles */
+        .text-center { text-align: center !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        .mb-4 { margin-bottom: 1.5rem !important; }
+        .mb-3 { margin-bottom: 1rem !important; }
+        .g-4 > * { padding: 1rem; }
+        .g-5 > * { padding: 1.5rem; }
 
         /* Ensure the header has proper positioning */
         header {
             position: relative;
             z-index: 100;
-        }
-
-        /* Animation for hamburger icon */
-        .mobile-menu-toggle {
-            transition: transform 0.2s ease;
-        }
-
-        .mobile-menu-toggle.active {
-            transform: rotate(90deg);
         }
     </style>
 </head>
@@ -56,16 +140,22 @@
                 <a href="#" class="logo"><img src="logo.png" alt="Logo"></a>
                 
                 <!-- Mobile menu toggle button -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <button class="navbar-toggler d-lg-none" type="button" onclick="toggleMobileNav()">
                     <i class="bi bi-list"></i>
                 </button>
                 
                 <!-- Navigation links -->
-                <ul class="nav-links" id="navLinks">
+                <ul class="nav-links">
                      <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <!-- Mobile Navigation -->
+                <div class="navbar-nav d-lg-none" id="mobileNav">
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -126,7 +216,6 @@
                 
                 <!-- Project 2 -->
                <a href="project2.html" class="project-card">
-                <div class="project-card">
                     <div class="project-img">
                          <img src="com1.jpg" alt="Mobile App UI/UX Project">
                     </div>
@@ -139,7 +228,7 @@
                             <span class="tag">Content Creation</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 
                 <!-- Project 3 -->
                 <a href="project3.html"  class="project-card">
@@ -224,22 +313,22 @@
                     <p><strong>Location:</strong> Zebbug, Malta</p>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form action="#" method="POST">
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" class="form-input" required>
+                            <input type="text" id="name" name="name" class="form-input" required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" class="form-input" required>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
                         <div class="form-group">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-input">
+                            <input type="text" id="subject" name="subject" class="form-input">
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-input" required></textarea>
+                            <textarea id="message" name="message" class="form-input" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
@@ -288,54 +377,35 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        // Mobile menu toggle functionality
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navLinks = document.getElementById('navLinks');
+        // Mobile navigation toggle
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('show');
+        }
 
-        mobileMenuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            this.classList.toggle('active');
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggleBtn = document.querySelector('.navbar-toggler');
             
-            // Change icon between hamburger and X
-            const icon = this.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.className = 'bi bi-x';
-            } else {
-                icon.className = 'bi bi-list';
-            }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.className = 'bi bi-list';
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.navbar')) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.className = 'bi bi-list';
+            if (!mobileNav.contains(e.target) && !toggleBtn.contains(e.target)) {
+                mobileNav.classList.remove('show');
             }
         });
 
         // Simple scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile nav after clicking
+                    document.getElementById('mobileNav').classList.remove('show');
                 }
             });
         });
