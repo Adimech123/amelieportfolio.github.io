@@ -29,6 +29,84 @@
             padding-right: 15px;
         }
 
+        /* Social Media Icons Styling - Fixed for Footer */
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .footer-social .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-social .social-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            filter: brightness(0) invert(1); /* Makes images white */
+        }
+
+        .footer-social .social-icon:hover img {
+            filter: brightness(0) invert(1);
+            transform: scale(1.1);
+        }
+
+        /* About Section Social Icons - Adobe Suite Icons */
+        .about-text .footer-social {
+            margin-top: 2rem;
+        }
+
+        .about-text .footer-social .social-icon {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text .footer-social .social-icon:hover {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Adobe Suite specific colors on hover */
+        .about-text .footer-social .social-icon:nth-child(1):hover {
+            background-color: #ff9a00; /* Adobe Illustrator orange */
+            border-color: #ff9a00;
+        }
+
+        .about-text .footer-social .social-icon:nth-child(2):hover {
+            background-color: #ff61f6; /* Adobe InDesign pink */
+            border-color: #ff61f6;
+        }
+
+        .about-text .footer-social .social-icon:nth-child(3):hover {
+            background-color: #31a8ff; /* Adobe Photoshop blue */
+            border-color: #31a8ff;
+        }
+
+        .about-text .footer-social .social-icon:nth-child(4):hover {
+            background-color: #9999ff; /* Adobe Premiere purple */
+            border-color: #9999ff;
+        }
+
         /* Ensure your existing animations work with Bootstrap grid */
         @media (max-width: 768px) {
             .about-content {
@@ -91,6 +169,32 @@
                 color: var(--text-on-dark);
                 padding: 0.75rem 1rem;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            /* Mobile social icons */
+            .footer-social {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .footer-social .social-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .footer-social .social-icon img {
+                width: 22px;
+                height: 22px;
+            }
+
+            .about-text .footer-social {
+                justify-content: center;
+            }
+
+            .about-text .footer-social .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 14px;
             }
         }
 
