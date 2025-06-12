@@ -30,6 +30,57 @@
       padding-right: 15px;
     }
 
+    /* Social Media Icons Styling - Fixed */
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    .social-icon:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .social-icon img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      filter: brightness(0) invert(1); /* Makes images white */
+    }
+
+    .social-icon:hover img {
+      filter: brightness(0) invert(1);
+      transform: scale(1.1);
+    }
+
+    /* Alternative styling if you want colored icons */
+    .social-icon.colored {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .social-icon.colored img {
+      filter: none; /* Removes white filter to show original colors */
+    }
+
+    .social-icon.colored:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
     /* Ensure your existing animations work with Bootstrap grid */
     @media (max-width: 768px) {
       .project-hero h1 {
@@ -111,6 +162,22 @@
         color: var(--text-on-dark);
         padding: 0.75rem 1rem;
         border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      /* Mobile social icons */
+      .footer-social {
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .social-icon img {
+        width: 22px;
+        height: 22px;
       }
     }
 
