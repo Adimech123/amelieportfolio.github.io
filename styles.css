@@ -148,10 +148,26 @@ header {
 .nav-links li:nth-child(3) a { animation-delay: 0.3s; }
 .nav-links li:nth-child(4) a { animation-delay: 0.4s; }
 
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
+    bottom: 0;
+    left: 0;
+    transition: var(--transition);
+}
+
 .nav-links a:hover {
     color: var(--primary-color-light);
     animation: textBounce 0.6s ease-in-out;
 }
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
 
 /* Projects section */
 .projects {
