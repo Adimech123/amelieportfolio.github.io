@@ -296,26 +296,42 @@ header {
 .about-content {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .about-img {
-    flex: 1;
-    height: 400px;
-    border-radius: 12px;
+    flex: 0 0 auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: var(--shadow-strong);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: slideInFromLeft 1s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .about-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover img {
+    transform: scale(1.05);
 }
 
 .about-text {
     flex: 1;
+    max-width: 600px;
     animation: slideInFromRight 1s ease-out;
 }
 
@@ -340,6 +356,91 @@ header {
 .about-text p:nth-child(3) { animation-delay: 0.4s; }
 .about-text p:nth-child(4) { animation-delay: 0.6s; }
 
+/* About Section Social Icons - Adobe Suite Icons */
+.about-text .footer-social {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.about-text .footer-social .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-on-dark);
+    font-weight: 600;
+    font-size: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.about-text .footer-social .social-icon:hover {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Adobe Suite specific colors on hover */
+.about-text .footer-social .social-icon:nth-child(1):hover {
+    background-color: #ff9a00; /* Adobe Illustrator orange */
+    border-color: #ff9a00;
+}
+
+.about-text .footer-social .social-icon:nth-child(2):hover {
+    background-color: #ff61f6; /* Adobe InDesign pink */
+    border-color: #ff61f6;
+}
+
+.about-text .footer-social .social-icon:nth-child(3):hover {
+    background-color: #31a8ff; /* Adobe Photoshop blue */
+    border-color: #31a8ff;
+}
+
+.about-text .footer-social .social-icon:nth-child(4):hover {
+    background-color: #9999ff; /* Adobe Premiere purple */
+    border-color: #9999ff;
+}
+
+/* Responsive adjustments for About section */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-img {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 2rem;
+    }
+
+    .about-text .footer-social {
+        justify-content: center;
+    }
+
+    .about-text .footer-social .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about {
+        padding: 3rem 0;
+    }
+    
+    .about-img {
+        width: 200px;
+        height: 200px;
+    }
+}
 
 /* Contact section */
 .contact {
